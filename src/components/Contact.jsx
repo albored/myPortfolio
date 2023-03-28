@@ -1,5 +1,4 @@
 import "../styles/components/contact.css";
-import { Link } from "react-router-dom";
 import { useContext, useState, useRef } from "react";
 import { LanguageContext } from "../context/languageContext";
 import { validation, formError } from "../tools/formSubmit";
