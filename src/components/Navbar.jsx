@@ -4,7 +4,6 @@ import es from "../assets/es.png";
 import "../styles/components/navbar.css";
 import { useState, useRef, useContext } from "react";
 import { LanguageContext } from "../context/languageContext";
-import { Link, useLocation } from "react-router-dom";
 import { motion, easeInOut } from "framer-motion";
 
 function Navbar() {
@@ -18,23 +17,35 @@ function Navbar() {
     useContext(LanguageContext);
 
   const links = [
-    { name: lang.navbar.links.home, id: 0, label: "home", path: "/home" },
-    { name: lang.navbar.links.about, id: 1, label: "about", path: "/about" },
     {
+      anchor: "#home",
+      name: lang.navbar.links.home,
+      id: 0,
+      label: "home",
+      path: "/home",
+    },
+    {
+      anchor: "#about",
+      name: lang.navbar.links.about,
+      id: 1,
+      label: "about",
+      path: "/about",
+    },
+    {
+      anchor: "#projects",
       name: lang.navbar.links.projects,
       id: 2,
       label: "projects",
       path: "/projects",
     },
     {
+      anchor: "#contact",
       name: lang.navbar.links.contact,
       id: 3,
       label: "contact",
       path: "/contact",
     },
   ];
-
-  const location = useLocation();
 
   // navModal mobile
 
@@ -63,29 +74,32 @@ function Navbar() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75, easings: easeInOut, delay: 0.75 }}
       className="nav">
-      <Link
-        onClick={() => scrollToSecction("home")}
-        to="/"
+      <a
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSecction("home");
+        }}
+        href="/"
         className="logo-link">
         <img className="logo" src={logo} alt="logo" />
-      </Link>
+      </a>
 
       <ul className="nav-links">
         {links.map((link) => (
           <li key={link.id}>
-            <Link
+            <a
               className={`nav-link ${
                 currentPath === link.path ? "active" : ""
-                // location.pathname === link.path ? "active" : ""
               }`}
-              to={link.path}
-              onClick={() => {
+              href={link.anchor}
+              onClick={(e) => {
+                e.preventDefault();
                 scrollToSecction(link.label);
                 handleClick();
                 setCurrentPath(link.path);
               }}>
               {link.name}
-            </Link>
+            </a>
           </li>
         ))}
 

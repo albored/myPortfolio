@@ -1,5 +1,4 @@
 import "./index.css";
-import { BrowserRouter as Router } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingPage from "./components/LoadingPage";
 import Content from "./layout/Content";
@@ -13,7 +12,6 @@ function App() {
     }, 3000);
   }, []);
 
-  return <Router>{isLoading ? <Content loading={isLoading} /> : <LoadingPage />}</Router>;
+  return <>{isLoading ? <Content loading={isLoading} /> : <LoadingPage />}</>;
 }
-
 export default App;

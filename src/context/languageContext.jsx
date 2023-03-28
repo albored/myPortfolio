@@ -5,7 +5,7 @@ export const LanguageContext = createContext();
 
 export default function LanguageContextProvider({ children }) {
   const [lang, setLang] = useState(language.EN);
-  const [currentPath, setCurrentPath] = useState("/home");
+  const [currentPath, setCurrentPath] = useState("#home");
 
   function setLanguage(lang) {
     setLang(language[lang]);

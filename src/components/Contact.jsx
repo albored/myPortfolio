@@ -69,15 +69,15 @@ function Contact() {
             <ul className="contact-social-list">
               {lang.contactIcons.map((link, i) => (
                 <li key={i}>
-                  <Link
+                  <a
                     className={link.label}
-                    to={link.path}
+                    href={link.path}
                     aria-label="Social media profile of Alvaro Cayo (Albored)"
                     target="_blank">
                     <ion-icon
                       style={{ fontSize: "20px" }}
                       name={`${link.icon}`}></ion-icon>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

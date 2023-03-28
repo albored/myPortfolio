@@ -19,29 +19,29 @@ function Projects() {
                 <div className="project-hov">
                   <div>
                     <span>
-                      <Link
+                      <a
                         className="project-link"
                         aria-label="Link to albored github"
-                        to={item.github}
+                        href={item.github}
                         title="Github Link"
                         target="_blank">
                         <ion-icon
                           style={{ fontSize: "30px" }}
                           name="logo-github"
                           alt="logo-github"></ion-icon>
-                      </Link>
+                      </a>
                     </span>
                     <span>
-                      <Link
+                      <a
                         className="project-link"
                         aria-label="Link to albored project"
-                        to={item.view}
+                        href={item.view}
                         title="Project link"
                         target="_blank">
                         <ion-icon
                           style={{ fontSize: "30px" }}
                           name="eye-outline"></ion-icon>
-                      </Link>
+                      </a>
                     </span>
                   </div>
                   <div className="tags">
