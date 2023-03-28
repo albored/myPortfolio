@@ -1,5 +1,4 @@
 import "../styles/components/projects.css";
-import { Link } from "react-router-dom";
 import projectsArr from "../tools/projects";
 import { useContext } from "react";
 import { LanguageContext } from "../context/languageContext";
